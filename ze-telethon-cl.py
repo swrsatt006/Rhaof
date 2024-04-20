@@ -1,9 +1,4 @@
-#----------------- Inauguration --------------------#
-
-
-
-#--------------------- module ------------------------#
-
+from mody import Mody
 import threading
 import os
 import json
@@ -63,27 +58,13 @@ try:
         # Extract bot_username from the response
         user_bot = response_data['result']['username']
 except FileNotFoundError:
-    api_id = 25281175
-    print('  ')
-    api_hash = '6d99cb2b60a2c519fc1f99bd19565730'
-    print('  ')
-    bot_token = input(A+"❖ Inter Your Token ➜  "+X)
-    print('  ')
-    DEVLOO = input(A+"❖ Inter Id Off Controller Account ➜  "+X)
-    print('  ')
-    MAX_ACCOUNTS = int(input(A+"❖ Inter Num Of Max Acc ➜  "+X))
-    print('  ')
-    id_bot = bot_token.split(':')[0]  # Extract id_bot from bot_token
-    print('  ')
-
-    # Send a GET request to the Telegram API
-    response = requests.get(f'https://api.telegram.org/bot{bot_token}/getme')
-    response_data = response.json()
-
-    # Extract bot_username from the response
-    user_bot = response_data['result']['username']
-    
-    print('  ')
+    api_id = Mody.API_ID
+    api_hash = Mody.API_HASH
+    bot_token = Mody.ELHYBA
+    DEVLOO = Mody.OWNER
+    MAX_ACCOUNTS = Mody.MAX_ACCOUNTS
+    id_bot = Mody.ID_BOT
+    user_bot = Mody.USER_BOT
     
     data = {
         'api_id': api_id,
@@ -106,11 +87,10 @@ bot = TelegramClient('bot', api_id, api_hash).start(bot_token=bot_token)
 
 
 #------------------ defult vars ---------------------# 
-
 owner_id = int(DEVLOO)
 DEVELOPER_ID = int(DEVLOO)
 OWNER_ID = DEVELOPER_ID
-developer_id = 6581896306
+developer_id = Mody.OWNER
 days_left = 28
 run = False
 datee = datetime.now()
